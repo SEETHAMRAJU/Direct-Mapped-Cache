@@ -1,0 +1,66 @@
+#! /usr/local/bin/vvp
+:ivl_version "11.0 (devel)" "(s20150603-553-g6c39348d)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "vhdl_textio";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x55740fb6a3b0 .scope module, "test" "test" 2 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "in";
+    .port_info 1 /OUTPUT 1 "out";
+v0x55740fb6a540_0 .var "clk", 0 0;
+o0x7fe500030048 .functor BUFZ 1, C4<z>; HiZ drive
+v0x55740fbafd80_0 .net "in", 0 0, o0x7fe500030048;  0 drivers
+v0x55740fbafe40 .array "memory", 3 0, 5 0;
+o0x7fe500030078 .functor BUFZ 1, C4<z>; HiZ drive
+v0x55740fbafee0_0 .net "out", 0 0, o0x7fe500030078;  0 drivers
+v0x55740fbaff80 .array "tempmem", 2 0, 1 0;
+    .scope S_0x55740fb6a3b0;
+T_0 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x55740fb6a540_0, 0, 1;
+    %end;
+    .thread T_0;
+    .scope S_0x55740fb6a3b0;
+T_1 ;
+    %vpi_call 2 8 "$readmemb", "memory.list", v0x55740fbaff80 {0 0 0};
+    %ix/load 4, 0, 0;
+    %flag_set/imm 4, 0;
+    %load/vec4a v0x55740fbaff80, 4;
+    %ix/load 4, 0, 0;
+    %flag_set/imm 4, 0;
+    %flag_mov 8, 4;
+    %ix/load 5, 0, 0;
+    %flag_set/imm 4, 0;
+    %flag_or 4, 8;
+    %store/vec4a v0x55740fbafe40, 4, 5;
+    %ix/load 4, 2, 0;
+    %flag_set/imm 4, 0;
+    %load/vec4a v0x55740fbaff80, 4;
+    %ix/load 4, 0, 0;
+    %flag_set/imm 4, 0;
+    %flag_mov 8, 4;
+    %ix/load 5, 4, 0;
+    %flag_set/imm 4, 0;
+    %flag_or 4, 8;
+    %store/vec4a v0x55740fbafe40, 4, 5;
+    %ix/load 4, 0, 0;
+    %flag_set/imm 4, 0;
+    %load/vec4a v0x55740fbaff80, 4;
+    %ix/load 4, 0, 0;
+    %flag_set/imm 4, 0;
+    %flag_mov 8, 4;
+    %ix/load 5, 2, 0;
+    %flag_set/imm 4, 0;
+    %flag_or 4, 8;
+    %store/vec4a v0x55740fbafe40, 4, 5;
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "test.v";
