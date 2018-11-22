@@ -11,24 +11,22 @@ module cache_tb;
 	);
 	initial begin
 		clk = 0;
-		Address = 32'b0000_0000_0000_0000_0000_0000_0101_1111;
+		Address = 32'b0000_0000_0000_0000_0000_0000_0000_1000;
 		#10;
 		$display("Cache hit = %b data=>%b",Hit_Miss,Data_Out);
-		Address = 32'b0000_0000_0000_0000_0000_0000_0101_1111;
+		Address = 32'b0000_0000_0000_0000_0000_0000_0000_1000;
 		#10;
 		$display("Cache hit = %b data=>%b",Hit_Miss,Data_Out);
-		Address = 32'b0000_0000_0000_0000_0000_0000_0101_1111;
+		Address = 32'b0000_0000_0000_0000_0000_0000_0000_1000;
 		#10;
-		$display("Cache hit = %b data=>%b",Hit_Miss,Data_Out);
-Address = 32'b0000_0000_0000_0000_0000_0000_0101_1111;
+		$display("Cache hit = %b data=>%b add=%b\n",Hit_Miss,Data_Out,Address);
 		#10;
-		$display("Cache hit = %b data=>%b",Hit_Miss,Data_Out);
-Address = 32'b0000_0000_0000_0000_0000_0000_0101_1111;
+		Address = 32'b0000_0000_0000_0000_0000_0000_0000_1100;
+		$display("Cache hit = %b data=>%b add=%b\n",Hit_Miss,Data_Out,Address);
 		#10;
-		$display("Cache hit = %b data=>%b",Hit_Miss,Data_Out);
-Address = 32'b0000_0000_0000_0000_0000_0000_0101_1111;
+		$display("Cache hit = %b data=>%b add=%b\n",Hit_Miss,Data_Out,Address);
 		#10;
-		$display("Cache hit = %b data=>%b\n%b",Hit_Miss,Data_Out,Address);
+		$display("Cache hit = %b data=>%b add=%b\n",Hit_Miss,Data_Out,Address);
 
 	end
 	initial begin

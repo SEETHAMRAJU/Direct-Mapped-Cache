@@ -5,11 +5,17 @@ using namespace std;
 int main()
 {
 	freopen("memory.list","w",stdout);
-	unsigned long long int p=0;
-	for(p;p<1024;p++)
+	unsigned long long int p=0;	
+	for(p;p<256;p++)
 	{
-		bitset<32> x(p);
-		cout << x << endl;
+		bitset<8> x(p);
+		for(int j=0;j<4;j++)
+		{
+			if(j == 3)
+				cout << x << endl;
+			else
+				cout << "00000000"<<endl; 
+		}
 	}
 	return 0;
 }
