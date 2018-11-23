@@ -1,0 +1,199 @@
+$date
+	Fri Nov 23 21:22:08 2018
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module cache_tb $end
+$var wire 1 ! Hit_Miss $end
+$var wire 32 " Data_Out [31:0] $end
+$var reg 32 # Address [31:0] $end
+$var reg 1 $ clk $end
+$scope module uut $end
+$var wire 32 % Address [31:0] $end
+$var wire 1 $ clk $end
+$var reg 4 & Byte_Offset [3:0] $end
+$var reg 32 ' Data_Out [31:0] $end
+$var reg 1 ! Hit_Miss $end
+$var reg 8 ( Index_Bits [7:0] $end
+$var reg 32 ) M [31:0] $end
+$var reg 18 * Tag_Bits [17:0] $end
+$var reg 32 + temp [31:0] $end
+$var reg 32 , temp2 [31:0] $end
+$var reg 32 - temp3 [31:0] $end
+$var integer 32 . count [31:0] $end
+$var integer 32 / i [31:0] $end
+$var integer 32 0 j [31:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+bx 0
+bx /
+b0 .
+bx -
+bx ,
+bx +
+bx *
+bx )
+bx (
+bx '
+bx &
+b1000 %
+0$
+b1000 #
+bx "
+x!
+$end
+#5
+0!
+b1111 )
+b1 .
+b10 &
+b0 (
+b0 *
+1$
+#10
+0$
+#15
+b1111 ,
+b100 0
+b111100 +
+b10000 /
+b1000000 -
+b11 .
+1$
+#20
+0$
+#25
+b10 "
+b10 '
+1!
+b1111 ,
+b100 0
+b111100 +
+b10000 /
+b1000000 -
+b101 .
+1$
+#30
+0$
+#35
+b11 "
+b11 '
+b110 .
+b11 &
+1$
+b1100 #
+b1100 %
+#40
+0$
+#45
+b111 .
+1$
+#50
+0$
+#55
+b1000 .
+1$
+#60
+0$
+#65
+b1001 .
+1$
+#70
+0$
+#75
+b1010 .
+1$
+#80
+0$
+#85
+b1011 .
+1$
+#90
+0$
+#95
+b1100 .
+1$
+#100
+0$
+#105
+b1101 .
+1$
+#110
+0$
+#115
+b1110 .
+1$
+#120
+0$
+#125
+b1111 .
+1$
+#130
+0$
+#135
+b10000 .
+1$
+#140
+0$
+#145
+b10001 .
+1$
+#150
+0$
+#155
+b10010 .
+1$
+#160
+0$
+#165
+b10011 .
+1$
+#170
+0$
+#175
+b10100 .
+1$
+#180
+0$
+#185
+b10101 .
+1$
+#190
+0$
+#195
+b10110 .
+1$
+#200
+0$
+#205
+b10111 .
+1$
+#210
+0$
+#215
+b11000 .
+1$
+#220
+0$
+#225
+b11001 .
+1$
+#230
+0$
+#235
+b11010 .
+1$
+#240
+0$
+#245
+b11011 .
+1$
+#250
+0$

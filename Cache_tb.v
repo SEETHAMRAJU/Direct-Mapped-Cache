@@ -10,23 +10,21 @@ module cache_tb;
 		.Hit_Miss(Hit_Miss)
 	);
 	initial begin
+		$dumpfile("cache.vcd");
+		$dumpvars(0,cache_tb);
 		clk = 0;
+		$display("Direct Mapped Cache");
+		$display("---------------------------------------------------------------------\n");
 		Address = 32'b0000_0000_0000_0000_0000_0000_0000_1000;
-		#10;
-		$display("Cache hit = %b data=>%b",Hit_Miss,Data_Out);
-		Address = 32'b0000_0000_0000_0000_0000_0000_0000_1000;
-		#10;
-		$display("Cache hit = %b data=>%b",Hit_Miss,Data_Out);
-		Address = 32'b0000_0000_0000_0000_0000_0000_0000_1000;
-		#10;
-		$display("Cache hit = %b data=>%b add=%b\n",Hit_Miss,Data_Out,Address);
-		#10;
+		#30;
+		$display("Hit=%b Data=%h address=%h\n",Hit_Miss,Data_Out,Address);
+		#5;
 		Address = 32'b0000_0000_0000_0000_0000_0000_0000_1100;
-		#10;
-		$display("Cache hit = %b data=>%b add=%b\n",Hit_Miss,Data_Out,Address);
+		#5;
+		$display("Hit=%b Data=%h address=%h\n",Hit_Miss,Data_Out,Address);
 
 	end
 	initial begin
-	repeat(20)#5 clk = ~clk;
+	repeat(50)#5 clk = ~clk;
 end
 endmodule
