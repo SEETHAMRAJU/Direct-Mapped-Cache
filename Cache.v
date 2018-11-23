@@ -17,18 +17,23 @@ module Cache(clk, Address, Data_Out, Hit_Miss);
 	reg [31:0]temp3;
 	integer i;
 	integer j;
+	integer count;
+	initial begin
+		$readmemb("memory.list",memory);	
+		count = 0;
+	end
 
 	always@(posedge clk)
     	begin
 	        Tag_Bits = Address[31:14];
         	Index_Bits = Address[13:6];
 	        Byte_Offset = Address[5:2];
+		count+=1;
     		M = 32'b0000_0000_0000_0000_0000_0000_0000_1111;
-		$readmemb("memory.list",memory);	
-	end
+	//end
 
-    	always@(Address,posedge clk)
-    	begin
+    	//always@(Address,posedge clk)
+    	//begin
         	if(Cache_Tags[Index_Bits] == Tag_Bits)
         	begin
 			Hit_Miss = 1;
@@ -38,6 +43,7 @@ module Cache(clk, Address, Data_Out, Hit_Miss);
         	begin
             		Hit_Miss = 0;
         	end
+		$display("%d\t",count);
     	end
     //This is the code for getting the block of data if there is a cache miss. 
     //here we are anding with the M 
@@ -45,6 +51,7 @@ module Cache(clk, Address, Data_Out, Hit_Miss);
     	begin
 		if(Hit_Miss == 0)
 		begin
+			count+=1;
 			temp3 = Address & 32'b11111111_11111111_11111111_11000000;
 			for(i=0;i<16;i++)
 			begin

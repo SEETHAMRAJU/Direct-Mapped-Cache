@@ -22,9 +22,6 @@ module cache_tb;
 		$display("Cache hit = %b data=>%b add=%b\n",Hit_Miss,Data_Out,Address);
 		#10;
 		Address = 32'b0000_0000_0000_0000_0000_0000_0000_1100;
-		$display("Cache hit = %b data=>%b add=%b\n",Hit_Miss,Data_Out,Address);
-		#10;
-		$display("Cache hit = %b data=>%b add=%b\n",Hit_Miss,Data_Out,Address);
 		#10;
 		$display("Cache hit = %b data=>%b add=%b\n",Hit_Miss,Data_Out,Address);
 
