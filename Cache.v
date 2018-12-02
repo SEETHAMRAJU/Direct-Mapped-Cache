@@ -5,6 +5,10 @@ module Cache(clk, Address, Data_Out, Hit_Miss,rate);
 	output reg Hit_Miss; 				//set if there is a hit else 0 for miss
     	output reg [31:0]rate;
    	
+	reg [15:0] [31:0] Cache_Memory[256:0]; 		//a memory of registers 256 x 16 words ,where 1 word is 32 bits.
+    	reg [17:0] Cache_Tags[256:0]; 			//a set of registers for the tag bits
+	//reg [7:0] memory[0:32767]; 			// the main memory
+	reg [7:0]memory[0:8388607];
 	reg [15:0] [31:0] Cache_Memory[255:0]; 		//a memory of registers 256 x 16 words ,where 1 word is 32 bits.
     	reg [17:0] Cache_Tags[255:0]; 			//a set of registers for the tag bits
 	//reg [7:0] memory[0:32767]; 			// the main memory
@@ -14,7 +18,6 @@ module Cache(clk, Address, Data_Out, Hit_Miss,rate);
 	reg [17:0] Tag_Bits; 				 
     	reg [7:0] Index_Bits; 				
     	reg [3:0] Byte_Offset; 			
-    	reg [31:0] M; 
 	//set of temporary registers required for future purposes
 	reg [31:0]temp; 		
 	reg [31:0]temp2; 			
@@ -48,13 +51,10 @@ module Cache(clk, Address, Data_Out, Hit_Miss,rate);
         	begin
             		Hit_Miss = 0;
         	end
-		//$display("<->%b %d %h",Hit_Miss,Data_Out,Address);
     	end
     	//This is the code for getting the block of data if there is a cache miss. 
     	//here we are anding with the a given numebr to make the last 6 bits
 	//0 and start from the firt location of the required bloack of data. 
-	always@(posedge clk)
-    	begin
 		if(Hit_Miss == 0)
 		begin
 			rate = rate + 1;
@@ -68,12 +68,13 @@ module Cache(clk, Address, Data_Out, Hit_Miss,rate);
 				for(j=0;j<4;j++)
 				begin
 					temp2 = temp2<<8;
-					temp2 = memory[temp+j];
+					temp2 = temp2 | memory[temp+j];
 				end
 				//Assigning the data in the memory 
 				Cache_Memory[Index_Bits][i] = temp2;
 			end
-			Cache_Tags[Index_Bits] <= Address[31:14];
-    		end
+			Cache_Tags[Index_Bits] = Address[31:14];
+    			Data_Out = Cache_Memory[Index_Bits][Byte_Offset] ;
+		end
 	end
 endmodule
